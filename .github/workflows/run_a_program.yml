@@ -16,11 +16,9 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
-      - uses: kenherring/openedge-actions@101fb74ac9de25299d4f5131f0097d62ae790475
-
       ## Example 1: Simply run a program
       ## * the `run` action will automatically call `setup` if no OpenEdge installation is detected
-      - uses: kenherring/openedge-actions/run@101fb74ac9de25299d4f5131f0097d62ae790475
+      - uses: kenherring/openedge-actions/run@98388fead992235f6f09897ef4c8826d4cfb4483
         with:
           startup-procedure: run_a_program/source_program.p
 
