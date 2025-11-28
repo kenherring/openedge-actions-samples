@@ -18,13 +18,13 @@ jobs:
 
       ## Example 1: Simply run a program
       ## * the `run` action will automatically call `setup` if no OpenEdge installation is detected
-      - uses: kenherring/openedge-actions/run@e116f6ae11b3a85a02c0c7778b5ff08898ab3840
+      - uses: kenherring/openedge-actions/run@ef98d83efb8fd48b30f3d517bfccf69b0bfd566a
         with:
           startup-procedure: run_a_program/source_program.p
 
-      ## Example 2: Set the propath to a subdirectory, and run a program relative to that subdirectory
-      - uses: kenherring/openedge-actions/run@e116f6ae11b3a85a02c0c7778b5ff08898ab3840
-        with:
-          propath: 'run_a_program'
-          # startup-procedure: source_program.p ## TODO
-          startup-procedure: run_a_program/source_program.p ## this should theoretically fail
+      # ## Example 2: Set the propath to a subdirectory, and run a program relative to that subdirectory
+      # - uses: kenherring/openedge-actions/run@ef98d83efb8fd48b30f3d517bfccf69b0bfd566a
+      #   with:
+      #     propath: 'run_a_program'
+      #     # startup-procedure: source_program.p ## TODO
+      #     startup-procedure: run_a_program/source_program.p ## this should theoretically fail
