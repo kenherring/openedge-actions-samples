@@ -26,6 +26,7 @@ jobs:
       # ## Example 2: Set the propath to a subdirectory, and run a program relative to that subdirectory
       - uses: kenherring/openedge-actions/run@8234b4dafeb80c25cac5debbd899c58329d7bf89
         with:
+          license: ${{ secrets.PROGRESS_CFG }}
           propath: 'run_a_program'
           # startup-procedure: source_program.p ## TODO
           startup-procedure: run_a_program/source_program.p ## this should theoretically fail
