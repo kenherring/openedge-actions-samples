@@ -18,7 +18,7 @@ jobs:
 
       ## Example 1: Simply run a program
       ## * the `run` action will automatically call `setup` if no OpenEdge installation is detected
-      - uses: kenherring/openedge-actions/run@ef98d83efb8fd48b30f3d517bfccf69b0bfd566a
+      - uses: kenherring/openedge-actions/run@101fb74ac9de25299d4f5131f0097d62ae790475
         with:
           startup-procedure: run_a_program/source_program.p
 
