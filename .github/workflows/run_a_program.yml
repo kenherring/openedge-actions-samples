@@ -1,0 +1,15 @@
+name: run_a_program
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  run_a_program:
+    name: run_a_program samples
+    runs-on: ubuntu-latest
+    steps:
+      - uses: kenherring/openedge-actions/run@e116f6ae11b3a85a02c0c7778b5ff08898ab3840
+        with:
+          startup-procedure: run_a_program/source_program.p
