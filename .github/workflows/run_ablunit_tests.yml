@@ -10,14 +10,14 @@ on:
       - main
 
 jobs:
-  run_aablunit_tests:
+  run_ablunit_tests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
 
       ## Example 1: ABLUnit test run
       ## * the `abl` action will automatically call `setup` if no OpenEdge installation is detected
-      - uses: kenherring/openedge-actions/ablunit@103af1ee5899d23818e735d004ab5e717ed235ba
+      - uses: kenherring/openedge-actions/ablunit@7999db3b2218467fdb2373cef69872fbb40ea315
         with:
           license: ${{ secrets.PROGRESS_CFG }}
           test-file-pattern: 'run_ablunit_tests/src/*.cls'
