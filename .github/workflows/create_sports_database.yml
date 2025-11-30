@@ -20,6 +20,7 @@ jobs:
       - uses: kenherring/openedge-actions/setup@a4957daefb2402f5586d4bd48d4e21227578637d
         with:
             license: ${{ secrets.PROGRESS_CFG }}
+            download-ade-source: true
             version: 12.8.9
 
       ## Second, create the sports database using ant+pct
