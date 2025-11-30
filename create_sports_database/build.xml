@@ -1,8 +1,9 @@
 <project name="create_sports_database">
 
+
+    <taskdef resource="PCT.properties" />
+	<typedef resource="types.properties" />
 	<property environment="env" />
-	<taskdef resource="PCT.properties" classpath="${user.home}/.ant/lib/PCT.jar" />
-	<typedef resource="types.properties" classpath="${user.home}/.ant/lib/PCT.jar" />
 	<DlcHome value="${env.DLC}" />
 
     <target name="createDatabase">

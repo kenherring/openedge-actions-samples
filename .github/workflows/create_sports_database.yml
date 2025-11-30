@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v5
 
       ## First, set up OpenEdge
-      - uses: kenherring/openedge-actions/setup@47047b7e99f0584184dc47da03fdeafad4fcb70f
+      - uses: kenherring/openedge-actions/setup@8b17711f2238ba509e33dcaf78cd45e86fbe2a61
         with:
             license: ${{ secrets.PROGRESS_CFG }}
             version: 12.8.9
@@ -29,7 +29,7 @@ jobs:
 
       ## Third, run a program that requires that database
       ## * the `run` action will automatically call `setup` if no OpenEdge installation is detected
-      - uses: kenherring/openedge-actions/run@47047b7e99f0584184dc47da03fdeafad4fcb70f
+      - uses: kenherring/openedge-actions/run@8b17711f2238ba509e33dcaf78cd45e86fbe2a61
         with:
           working-directory: create_sports_database
           parameter-file: sports.pf
