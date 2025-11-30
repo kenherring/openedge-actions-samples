@@ -1,0 +1,23 @@
+name: run_ablunit_tests
+# description:  Sample workflow demonstrating how to run ablunit tests with kenherring/openedge-actions/ablunit
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  run_aablunit_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      ## Example 1: ABLUnit test run
+      ## * the `abl` action will automatically call `setup` if no OpenEdge installation is detected
+      - uses: kenherring/openedge-actions/ablunit@fc80d9232e3b6a03b22a0d6f043a3b1455af08d0
+        with:
+          license: ${{ secrets.PROGRESS_CFG }}
+          test-file-pattern: 'run_ablunit_tests/src/*.cls'
