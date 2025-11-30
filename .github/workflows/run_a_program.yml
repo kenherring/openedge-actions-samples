@@ -10,7 +10,7 @@ on:
       - main
 
 jobs:
-  run_a_program:
+  run_a_program_1:
     name: run_a_program samples
     runs-on: ubuntu-latest
     steps:
@@ -18,13 +18,13 @@ jobs:
 
       ## Example 1: Simply run a program
       ## * the `run` action will automatically call `setup` if no OpenEdge installation is detected
-      - uses: kenherring/openedge-actions/run@v0.0.1
+      - uses: kenherring/openedge-actions/run@f07b0137dc0b2e78955987f76e2c21331aca6ac3
         with:
           license: ${{ secrets.PROGRESS_CFG }}
           startup-procedure: run_a_program/source_program.p
 
       # ## Example 2: Set the propath to a subdirectory, and run a program relative to that subdirectory
-      - uses: kenherring/openedge-actions/run@v0.0.1
+      - uses: kenherring/openedge-actions/run@f07b0137dc0b2e78955987f76e2c21331aca6ac3
         with:
           license: ${{ secrets.PROGRESS_CFG }}
           propath: 'run_a_program'
