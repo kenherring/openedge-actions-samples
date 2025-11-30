@@ -1,6 +1,8 @@
 #!/bin/bash
 set -euo pipefail
 
+## quickly update ref references when testing changes in kenherring/openedge-actions
+
 cd "../openedge-actions"
 OPENEDGE_ACTIONS_REF=$(git log -1 --pretty=format:%H)
 cd "../openedge-actions-samples"
