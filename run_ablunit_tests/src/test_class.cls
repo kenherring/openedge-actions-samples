@@ -13,4 +13,4 @@ class src.test_class :
         OpenEdge.Core.Assert:Equals(1, 2).
     end method.
 
-end class
+end class.
