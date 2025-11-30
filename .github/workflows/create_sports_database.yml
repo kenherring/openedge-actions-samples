@@ -1,0 +1,43 @@
+name: create_sports_database
+# description:  Sample workflow demonstrating how to run an OpenEdge program with kenherring/openedge-actions/run
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  run_a_program_1:
+    name: create_sports_database samples
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      ## First, set up OpenEdge
+      - uses: kenherring/openedge-actions/setup@1c840d6bbe6bef684d8e3ed7b7a12a277844ce28
+        with:
+            license: ${{ secrets.PROGRESS_CFG }}
+            download-ade-source: true
+            version: 12.8.9
+
+      ## Second, create the sports database using ant+pct
+      - shell: bash
+        working-directory: create_sports_database
+        run: ant createDatabase
+
+      ## Now, run a program that requires that database
+      - uses: kenherring/openedge-actions/run@1c840d6bbe6bef684d8e3ed7b7a12a277844ce28
+        with:
+          working-directory: create_sports_database
+          parameter-file: sports.pf
+          startup-procedure: get_first_customer.p
+
+      ## Or, run tests which require that database
+      - uses: kenherring/openedge-actions/ablunit@1c840d6bbe6bef684d8e3ed7b7a12a277844ce28
+        with:
+          working-directory: create_sports_database
+          parameter-file: sports.pf
+          test-file-pattern: customer_test.p
