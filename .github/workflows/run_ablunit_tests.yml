@@ -17,7 +17,7 @@ jobs:
 
       ## Example 1: ABLUnit test run
       ## * the `abl` action will automatically call `setup` if no OpenEdge installation is detected
-      - uses: kenherring/openedge-actions/ablunit@b207d38c1c1eaa6ffd21360ac942a1eaa911cd24
+      - uses: kenherring/openedge-actions/ablunit@8938073cdaf44a1b443ecd13a07576c316bdf4dd
         with:
           license: ${{ secrets.PROGRESS_CFG }}
           working-directory: 'run_ablunit_tests'
