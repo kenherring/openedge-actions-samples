@@ -7,4 +7,7 @@ cd "../openedge-actions"
 OPENEDGE_ACTIONS_REF=$(git log -1 --pretty=format:%H)
 cd "../openedge-actions-samples"
 
-sed -i "s|uses: kenherring/openedge-actions/run@.*|uses: kenherring/openedge-actions/run@${OPENEDGE_ACTIONS_REF}|g" .github/workflows/*.yml
+for FILE in ./.github/workflows/*.yml; do
+    echo "FILE=$FILE"
+    sed -i "s|uses: kenherring/openedge-actions/\([a-zA-Z]*\)@.*|uses: kenherring/openedge-actions/\1@${OPENEDGE_ACTIONS_REF}|g" "$FILE"
+done
