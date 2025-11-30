@@ -39,4 +39,4 @@ jobs:
         with:
           working-directory: create_sports_database
           parameter-file: sports.pf
-          test-file-pattern: customer-test.p
+          test-file-pattern: customer_test.p
