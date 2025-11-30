@@ -1,0 +1,8 @@
+{
+    "recommendations": [
+        "kherring.ablunit-test-runner",
+        "davidanson.vscode-markdownlint",
+        "redhat.vscode-yaml",
+        "riversidesoftware.openedge-abl-lsp",
+    ]
+}
