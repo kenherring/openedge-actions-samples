@@ -2,12 +2,7 @@ name: run_ablunit_tests
 # description:  Sample workflow demonstrating how to run ablunit tests with kenherring/openedge-actions/ablunit
 
 on:
-  pull_request:
-    branches:
-      - main
-  push:
-    branches:
-      - main
+  workflow_call
 
 jobs:
   run_ablunit_tests:
