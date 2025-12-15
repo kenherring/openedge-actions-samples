@@ -1,4 +1,4 @@
-define output parameter val as integer no-undo.
-assign val = 123.
-message "returning val=" + string(val).
+define output parameter opValue as integer no-undo.
+assign opValue = 123.
+message "returning opValue=" + string(opValue).
 return.
