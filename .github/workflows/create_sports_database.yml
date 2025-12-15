@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v5
 
       ## First, set up OpenEdge
-      - uses: kenherring/openedge-actions/setup@95123e5019a96657d51d7960328d46446befc332
+      - uses: kenherring/openedge-actions/setup@6c8ee50b721bc37d9b7dd87d6150b05964e2efd8
         with:
             license: ${{ secrets.PROGRESS_CFG }}
             download-ade-source: true
@@ -24,14 +24,14 @@ jobs:
         run: ant createDatabase
 
       ## Now, run a program that requires that database
-      - uses: kenherring/openedge-actions/run@95123e5019a96657d51d7960328d46446befc332
+      - uses: kenherring/openedge-actions/run@6c8ee50b721bc37d9b7dd87d6150b05964e2efd8
         with:
           working-directory: create_sports_database
           parameter-file: sports.pf
           startup-procedure: get_first_customer.p
 
       ## Or, run tests which require that database
-      - uses: kenherring/openedge-actions/ablunit@95123e5019a96657d51d7960328d46446befc332
+      - uses: kenherring/openedge-actions/ablunit@6c8ee50b721bc37d9b7dd87d6150b05964e2efd8
         with:
           working-directory: create_sports_database
           parameter-file: sports.pf

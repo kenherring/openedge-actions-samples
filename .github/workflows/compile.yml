@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v5
 
       ## First, set up OpenEdge
-      - uses: kenherring/openedge-actions/setup@95123e5019a96657d51d7960328d46446befc332
+      - uses: kenherring/openedge-actions/setup@6c8ee50b721bc37d9b7dd87d6150b05964e2efd8
         with:
             license: ${{ secrets.PROGRESS_CFG }}
             download-ade-source: true
@@ -20,26 +20,30 @@ jobs:
 
       ## Second, compile the code
       ## * Alternative, you could start a pre-configured database via docker or other means
-      - uses: kenherring/openedge-actions/compile@95123e5019a96657d51d7960328d46446befc332
+      - uses: kenherring/openedge-actions/compile@6c8ee50b721bc37d9b7dd87d6150b05964e2efd8
         with:
             working-directory: compile
             propath: src,test
+            pct-keepXref: "true"
+            pct-xmlXref: "true"
 
       ## DEBUG
       - shell: bash
         working-directory: compile
         run: |
           find . -name "*.r"
+          find . -name "*.xml"
+          find . -name "*.xref"
 
       ## Now, run a program with rcode
-      - uses: kenherring/openedge-actions/run@95123e5019a96657d51d7960328d46446befc332
+      - uses: kenherring/openedge-actions/run@6c8ee50b721bc37d9b7dd87d6150b05964e2efd8
         with:
           working-directory: compile
           propath: src,test
           startup-procedure: someProgramToRun.r
 
       ## Or, run tests with rcode
-      - uses: kenherring/openedge-actions/ablunit@95123e5019a96657d51d7960328d46446befc332
+      - uses: kenherring/openedge-actions/ablunit@6c8ee50b721bc37d9b7dd87d6150b05964e2efd8
         with:
           working-directory: compile
           propath: src,test
