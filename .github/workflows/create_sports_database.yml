@@ -24,6 +24,7 @@ jobs:
             version: 12.8.9
 
       ## Second, create the sports database using ant+pct
+      ## * Alternative, you could start a pre-configured database via docker or other means
       - shell: bash
         working-directory: create_sports_database
         run: ant createDatabase

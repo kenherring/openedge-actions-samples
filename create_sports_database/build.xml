@@ -11,11 +11,4 @@
         <sports2000 dbName="sp2k" destDir="target/db" />
     </target>
 
-    <!-- <target name="dumpSchema">
-        <mkdir dir="target" />
-        <PCTDumpSchema destFile="target/sp2k.df">
-            <DBConnection dbName="target/db/sp2k" singleUser="true" />
-        </PCTDumpSchema>
-    </target> -->
-
 </project>

@@ -2,12 +2,11 @@
     "name": "create_sports_database",
     "charset": "utf-8",
     "version": "0",
-    "extraParameters": "sports.pf",
     "dbConnections": [
         {
             "name": "sp2k",
-            "connect": "-db target/db/sp2k -1",
-            "schemaFile": "target/sp2k.pf",
+            "connect": "-db target/db/sp2k -RO",
+            "schemaFile": "target/sp2k.df",
             "aliases": []
         }
     ]

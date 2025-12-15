@@ -1,0 +1,20 @@
+{
+    "folders": [
+        {
+            "path": ".",
+            "name": "[root]",
+        },
+        {
+            "path": "compile",
+        },
+        {
+            "path": "create_sports_database",
+        },
+        {
+            "path": "run_a_program",
+        },
+        {
+            "path": "run_ablunit_tests",
+        },
+    ],
+}
