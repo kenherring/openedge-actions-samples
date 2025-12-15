@@ -23,21 +23,23 @@ jobs:
             download-ade-source: true
             version: 12.8.9
 
-      ## Second, create the sports database using ant+pct
-      - shell: bash
-        working-directory: create_sports_database
-        run: ant createDatabase
+      ## Second, compile the code
+      ## * Alternative, you could start a pre-configured database via docker or other means
+      - uses: kenherring/openedge-actions/compile@e1fc8bdeda14cf10ec802334c6b137f3171ca8aa
+        with:
+            working-directory: compile
+            propath: src,test
 
-      ## Now, run a program that requires that database
+      ## Now, run a program with rcode
       - uses: kenherring/openedge-actions/run@e1fc8bdeda14cf10ec802334c6b137f3171ca8aa
         with:
-          working-directory: create_sports_database
-          parameter-file: sports.pf
-          startup-procedure: get_first_customer.p
+          working-directory: compile
+          propath: src,test
+          startup-procedure: someProgram.p
 
-      ## Or, run tests which require that database
+      ## Or, run tests with rcode
       - uses: kenherring/openedge-actions/ablunit@e1fc8bdeda14cf10ec802334c6b137f3171ca8aa
         with:
-          working-directory: create_sports_database
-          parameter-file: sports.pf
-          test-file-pattern: customer_test.p
+          working-directory: compile
+          propath: src,test
+          test-file-pattern: someProgramTest.r
