@@ -25,6 +25,12 @@ jobs:
             working-directory: compile
             propath: src,test
 
+      ## DEBUG
+      - shell: bash
+        working-directory: compile
+        run: |
+          find . -name "**/*.r"
+
       ## Now, run a program with rcode
       - uses: kenherring/openedge-actions/run@b811495ee9ac5e8f3857f33dc2c7461a87d6fcbc
         with:
@@ -37,4 +43,4 @@ jobs:
         with:
           working-directory: compile
           propath: src,test
-          test-file-pattern: someProgramTest.r
+          test-file-pattern: test/someProgramTest.r
