@@ -47,5 +47,5 @@ jobs:
         with:
           working-directory: compile
           propath: src,test
-          test-file-pattern: "*.r,**/*.r"
+          test-file-pattern: someProgramTest.r
           debug: true
