@@ -1,12 +1,11 @@
-name: create_sports_database
-# description:  Sample workflow demonstrating how to run an OpenEdge program with kenherring/openedge-actions/run
+name: compile
 
 on:
   workflow_call
 
 jobs:
   run_a_program_1:
-    name: create_sports_database samples
+    name: compile samples
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -27,14 +26,6 @@ jobs:
             pct-keepXref: "true"
             pct-xmlXref: "true"
 
-      ## DEBUG
-      - shell: bash
-        working-directory: compile
-        run: |
-          find . -name "*.r"
-          find . -name "*.xml"
-          find . -name "*.xref"
-
       ## Now, run a program with rcode
       - uses: kenherring/openedge-actions/run@85a25f0e55183c32ac2d3cd377060a3b103ce74e
         with:
@@ -48,4 +39,3 @@ jobs:
           working-directory: compile
           propath: src,test
           test-file-pattern: someProgramTest.r
-          debug: true

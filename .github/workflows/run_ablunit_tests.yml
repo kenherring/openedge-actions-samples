@@ -1,11 +1,11 @@
 name: run_ablunit_tests
-# description:  Sample workflow demonstrating how to run ablunit tests with kenherring/openedge-actions/ablunit
 
 on:
   workflow_call
 
 jobs:
   run_ablunit_tests:
+    name: run_ablunit_tests samples
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5

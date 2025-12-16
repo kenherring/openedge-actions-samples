@@ -1,5 +1,4 @@
 name: create_sports_database
-# description:  Sample workflow demonstrating how to run an OpenEdge program with kenherring/openedge-actions/run
 
 on:
   workflow_call
