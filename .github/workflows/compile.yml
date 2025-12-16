@@ -1,0 +1,41 @@
+name: compile
+
+on:
+  workflow_call
+
+jobs:
+  run_a_program_1:
+    name: compile samples
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      ## First, set up OpenEdge
+      - uses: kenherring/openedge-actions/setup@v0.0.3
+        with:
+            license: ${{ secrets.PROGRESS_CFG }}
+            download-ade-source: true
+            version: 12.8.9
+
+      ## Second, compile the code
+      ## * Alternative, you could start a pre-configured database via docker or other means
+      - uses: kenherring/openedge-actions/compile@v0.0.3
+        with:
+            working-directory: compile
+            propath: src,test
+            pct-keepXref: "true"
+            pct-xmlXref: "true"
+
+      ## Now, run a program with rcode
+      - uses: kenherring/openedge-actions/run@v0.0.3
+        with:
+          working-directory: compile
+          propath: src,test
+          startup-procedure: someProgramToRun.r
+
+      ## Or, run tests with rcode
+      - uses: kenherring/openedge-actions/ablunit@v0.0.3
+        with:
+          working-directory: compile
+          propath: src,test
+          test-file-pattern: someProgramTest.r

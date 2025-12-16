@@ -1,8 +1,10 @@
 .builder/
+.pct/
 target/
 
 ablunit.json
 results.xml
 
 *.log
+*.r
 lbia*

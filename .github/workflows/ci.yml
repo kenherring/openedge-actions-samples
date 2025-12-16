@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  compile:
+    uses: ./.github/workflows/compile.yml
+    secrets: inherit
+  create_sports_database:
+    uses: ./.github/workflows/create_sports_database.yml
+    secrets: inherit
+  run_a_program:
+    uses: ./.github/workflows/run_a_program.yml
+    secrets: inherit
+  run_ablunit_tests:
+    uses: ./.github/workflows/run_ablunit_tests.yml
+    secrets: inherit
